@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/banner.svg?v=3" alt="kaike-w" width="100%" />
+  <img src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/banner.svg?v=4" alt="kaike-w" width="100%" />
 </div>
 
 <p align="center">
@@ -13,19 +13,19 @@
 </p>
 
 <div align="center">
-  <img width="82%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/terminal.svg?v=3" alt="terminal" />
+  <img width="82%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/terminal.svg?v=4" alt="terminal" />
 </div>
 
 <br />
 
 <div align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/marquee.svg?v=3" alt="marquee" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/marquee.svg?v=4" alt="marquee" />
 </div>
 
 <br />
 
 <div align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/badges.svg?v=3" alt="achievements" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/badges.svg?v=4" alt="achievements" />
 </div>
 
 <br />
@@ -33,13 +33,13 @@
 ## 📈 最近一年
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/stats.svg?v=3" alt="贡献热力图" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/stats.svg?v=4" alt="贡献热力图" />
 </p>
 
 ## 🌍 我的时区
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/timezone.svg?v=3" alt="我的时区" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/timezone.svg?v=4" alt="我的时区" />
 </p>
 
 ## 🚧 折腾现场
@@ -51,9 +51,9 @@
 | **[hs_education](https://github.com/kaike-w/hs_education)** | 写着写着就开始面向对象 |
 
 <div align="center">
-  <img width="200" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/cat.svg?v=3" alt="cat" />
+  <img width="200" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/cat.svg?v=4" alt="cat" />
   <br />
-  <img width="70%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/divider.svg?v=3" alt="divider" />
+  <img width="70%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/divider.svg?v=4" alt="divider" />
   <br />
   <sub>今天也要早点睡 · 欢迎点个 Star ⭐️</sub>
   <br />
