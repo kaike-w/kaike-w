@@ -27,7 +27,7 @@
 <br />
 
 <div align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/achievements.svg?v=3" alt="achievements" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/wall.svg" alt="achievements" />
 </div>
 
 <br />
