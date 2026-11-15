@@ -10,7 +10,7 @@ const ME = { tz: "Asia/Shanghai", label: "Asia/Shanghai", name: "中国标准时
 const CITIES = [
   { name: "伦敦", utc: 0, color: "#34D399" },
   { name: "纽约", utc: -5, color: "#F472B6" },
-  { name: "东京", utc: 9, color: "#818CF8" },
+  { name: "东京", utc: 9, color: "#818CF8", onDial: false },
   { name: "悉尼", utc: 11, color: "#22D3EE" },
 ];
 
@@ -38,34 +38,30 @@ const minor = Array.from({ length: 24 }, (_, h) => {
 const major = [0, 6, 12, 18]
   .map((h) => {
     const [x1, y1] = pt(h, R + 4);
-    const [x2, y2] = pt(h, R + 12);
-    const [lx, ly] = pt(h, R + 24);
-    return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#3C4C6B" stroke-width="1.4"/>
-  <text x="${lx.toFixed(1)}" y="${(ly + 4).toFixed(1)}" text-anchor="middle" font-size="10.5" fill="#5E6F8F">${h}时</text>`;
+    const [x2, y2] = pt(h, R + 11);
+    return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#4A5C7D" stroke-width="1.5"/>`;
   })
   .join("\n");
 
-// 城市标记：北京单独高亮
-const marker = (c, idx) => {
+// 城市标记：标签位置按方位固定，避免互相压字
+const LABEL_POS = {
+  伦敦: { anchor: "middle", dx: 0, dy: -14 },
+  纽约: { anchor: "end", dx: -14, dy: 4 },
+  悉尼: { anchor: "start", dx: 10, dy: 18 },
+};
+
+const marker = (c) => {
   const [x, y] = pt(c.utc, R);
-  const dx = x - CX;
-  const anchor = dx > 12 ? "start" : dx < -12 ? "end" : "middle";
-  const ox = dx > 12 ? 12 : dx < -12 ? -12 : 0;
-  const oy = dyAdjust(y);
+  const p = LABEL_POS[c.name] || { anchor: "start", dx: 14, dy: 4 };
   return `  <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.6" fill="${c.color}"/>
   <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="9" fill="none" stroke="${c.color}" stroke-opacity="0.28" stroke-width="1.2"/>
-  <text x="${(x + ox).toFixed(1)}" y="${(y + oy).toFixed(1)}" text-anchor="${anchor}" font-size="12" fill="#C9D6EE">${esc(c.name)}</text>`;
+  <text x="${(x + p.dx).toFixed(1)}" y="${(y + p.dy).toFixed(1)}" text-anchor="${p.anchor}" font-size="12" fill="#C9D6EE">${esc(c.name)}</text>`;
 };
-function dyAdjust(y) {
-  if (y < CY - 40) return -12;
-  if (y > CY + 40) return 16;
-  return 4;
-}
 
 const meP = pt(ME.utc, R);
 const meMarker = `  <circle cx="${meP[0].toFixed(1)}" cy="${meP[1].toFixed(1)}" r="6.5" fill="#0B1220" stroke="#22D3EE" stroke-width="2"/>
   <circle cx="${meP[0].toFixed(1)}" cy="${meP[1].toFixed(1)}" r="12" fill="none" stroke="#22D3EE" stroke-opacity="0.35" stroke-width="1.2" class="halo"/>
-  <text x="${(meP[0] + 18).toFixed(1)}" y="${(meP[1] + 5).toFixed(1)}" font-size="12" font-weight="600" fill="#7DEEFF">北京 · 我</text>`;
+  <text x="${(meP[0] + 17).toFixed(1)}" y="${(meP[1] + 5).toFixed(1)}" font-size="12" font-weight="600" fill="#7DEEFF">我 · UTC+8</text>`;
 
 const rows = CITIES.map((c, i) => {
   const diff = c.utc - ME.utc;
@@ -121,14 +117,14 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <text x="${PAD}" y="172" font-size="12" letter-spacing="1" fill="#5E6F8F">${esc(ME.name)} · ${esc(ME.note)}</text>
   <path d="M${PAD} 194H${PAD + 250}" stroke="#1B263C" stroke-width="1"/>
   <text x="${PAD}" y="220" font-size="12" letter-spacing="1" fill="#6B7C9B">与我同步时间：按 UTC+8 计算</text>
-  <text x="${PAD}" y="244" font-size="12" letter-spacing="1" fill="#6B7C9B">表盘为同一时刻，各城市所在位置</text>
+  <text x="${PAD}" y="244" font-size="12" letter-spacing="1" fill="#6B7C9B">24 小时表盘 · 0 点在正上方</text>
 
   <circle cx="${CX}" cy="${CY}" r="${R}" fill="url(#core)"/>
   <circle cx="${CX}" cy="${CY}" r="${R}" stroke="url(#ring)" stroke-width="2" stroke-opacity="0.9"/>
   <circle cx="${CX}" cy="${CY}" r="${R + 18}" stroke="#25314B" stroke-width="1" stroke-dasharray="2 8" class="dash"/>
 ${minor}
 ${major}
-${CITIES.map(marker).join("\n")}
+${CITIES.filter((c) => c.onDial !== false).map(marker).join("\n")}
 ${meMarker}
 
   <text x="${CX}" y="${CY - 6}" text-anchor="middle" font-size="26" font-weight="700" fill="#E9F3FF">+8</text>
