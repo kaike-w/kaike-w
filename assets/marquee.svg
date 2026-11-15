@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="66" viewBox="0 0 1280 66" fill="none" role="img" aria-label="marquee">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="0.5" stop-color="#101a2e"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="mline" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0"/>
+      <stop offset="0.2" stop-color="#22D3EE" stop-opacity="0.7"/>
+      <stop offset="0.5" stop-color="#818CF8" stop-opacity="0.7"/>
+      <stop offset="0.8" stop-color="#F472B6" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#F472B6" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="fade">
+      <linearGradient id="fg" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#000"/>
+        <stop offset="0.09" stop-color="#fff"/>
+        <stop offset="0.91" stop-color="#fff"/>
+        <stop offset="1" stop-color="#000"/>
+      </linearGradient>
+      <rect width="1280" height="66" fill="url(#fg)"/>
+    </mask>
+    <style>
+      @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-1280px)} }
+      .track{animation:scroll 32s linear infinite}
+    </style>
+  </defs>
+
+  <rect width="1280" height="66" fill="url(#mbg)"/>
+  <rect x="0" y="0" width="1280" height="1.5" fill="url(#mline)"/>
+  <rect x="0" y="64.5" width="1280" height="1.5" fill="url(#mline)"/>
+
+  <g mask="url(#fade)">
+    <g class="track" font-family="'Fira Code','Cascadia Code',Consolas,monospace" font-size="15" letter-spacing="3">
+      <g fill="#9FB2D4">
+        <text x="24" y="41">还在写 bug ✦</text>
+        <text x="284" y="41">刚学会就忘 ✦</text>
+        <text x="544" y="41">Ctrl+S 强迫症 ✦</text>
+        <text x="804" y="41">咖啡因驱动 ✦</text>
+        <text x="1064" y="41">明天一定重构 ✦</text>
+      </g>
+      <g fill="#9FB2D4" transform="translate(1280 0)">
+        <text x="24" y="41">还在写 bug ✦</text>
+        <text x="284" y="41">刚学会就忘 ✦</text>
+        <text x="544" y="41">Ctrl+S 强迫症 ✦</text>
+        <text x="804" y="41">咖啡因驱动 ✦</text>
+        <text x="1064" y="41">明天一定重构 ✦</text>
+      </g>
+    </g>
+  </g>
+</svg>
