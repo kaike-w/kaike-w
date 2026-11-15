@@ -56,4 +56,6 @@
   <img width="70%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/divider.svg" alt="divider" />
   <br />
   <sub>今天也要早点睡 · 欢迎点个 Star ⭐️</sub>
+  <br />
+  <img src="https://img.shields.io/github/last-commit/kaike-w/kaike-w?style=flat-square&label=updated&labelColor=0D1526&color=34D399" alt="last update" />
 </div>
