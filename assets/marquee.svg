@@ -12,8 +12,8 @@
     <style>@keyframes sc{from{transform:translateX(0)}to{transform:translateX(-1280px)}}.track{animation:sc 36s linear infinite}</style>
   </defs>
 
-  <path d="M0 0.5H1280M0 59.5H1280" stroke="#F0F1F4"/>
-  <g mask="url(#fade)" fill="#A8AEB8" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif" font-size="14" letter-spacing="3">
+  <rect width="1280" height="60" fill="#FAFAFB"/><path d="M0 0.5H1280M0 59.5H1280" stroke="#EDEFF2"/>
+  <g mask="url(#fade)" fill="#6B7280" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif" font-size="14" letter-spacing="3">
     <g class="track">
       <g>
         <text x="28" y="36">还在写 bug</text><text x="180" y="36" fill="#DDE1E6">·</text>
