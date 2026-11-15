@@ -32,14 +32,16 @@
 
 <br />
 
-## 📈 最近
+## 📈 最近一年
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=kaike-w&hide_border=true&background=0D1526&ring=818CF8&fire=F472B6&currStreakNum=FFFFFF&currStreakLabel=22D3EE&sideNums=FFFFFF&sideLabels=C9D6EE&dates=6B7C9B&border_radius=6" alt="streak" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/stats.svg" alt="贡献热力图" />
 </p>
 
+## 🌍 我的时区
+
 <p align="center">
-  <img width="92%" src="https://ghchart.rshah.org/22D3EE/kaike-w" alt="contributions" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/timezone.svg" alt="我的时区" />
 </p>
 
 ## 🚧 折腾现场
