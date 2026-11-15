@@ -35,13 +35,13 @@
 ## 📈 最近一年
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/stats.svg" alt="贡献热力图" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/stats.svg?v=2" alt="贡献热力图" />
 </p>
 
 ## 🌍 我的时区
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/timezone.svg" alt="我的时区" />
+  <img width="100%" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/timezone.svg?v=2" alt="我的时区" />
 </p>
 
 ## 🚧 折腾现场
