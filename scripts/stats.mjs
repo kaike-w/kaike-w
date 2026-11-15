@@ -1,4 +1,4 @@
-// 生成「贡献热力图」数据卡 assets/stats.svg
+// 生成「贡献热力图」数据卡 assets/stats.svg（浅色简约版）
 // 用法: GH_TOKEN=xxx node scripts/stats.mjs
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
@@ -32,7 +32,6 @@ const gql = async (query, variables) => {
 
 const CAL = `contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount weekday } } }`;
 
-// 1. 年份列表 + 近一年日历
 const head = await gql(
   `query($login:String!){ user(login:$login){ name login contributionsCollection{ contributionYears ${CAL} } } }`,
   { login: LOGIN }
@@ -40,7 +39,6 @@ const head = await gql(
 const yearsList = head.user.contributionsCollection.contributionYears;
 const recent = head.user.contributionsCollection.contributionCalendar;
 
-// 2. 历年逐日数据（用于累计 / 活跃天数 / 最长连续）
 const all = new Map();
 for (const y of yearsList) {
   const d = await gql(
@@ -62,7 +60,6 @@ for (const [, n] of ordered) {
   if (run > longest) longest = run;
 }
 
-// 3. 当前连续（从今天往回数，今天为 0 则从昨天开始）
 const days = recent.weeks.flatMap((w) => w.contributionDays);
 let current = 0;
 let i = days.length - 1;
@@ -84,7 +81,7 @@ const GRID_Y = 196;
 const MONTHS = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
 const WEEK_LABELS = { 1: "一", 3: "三", 5: "五" };
 
-const LEVELS = ["#17233A", "#12506B", "#0E7490", "#22D3EE", "#7DEEFF"];
+const LEVELS = ["#F1F5F9", "#DBEAFE", "#93C5FD", "#3B82F6", "#1D4ED8"];
 const level = (n) => (n === 0 ? 0 : n <= 1 ? 1 : n <= 4 ? 2 : n <= 9 ? 3 : 4);
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -119,66 +116,47 @@ const cells = recent.weeks
   )
   .join("");
 
-const kpi = (x, value, label, hint, color) => `  <text x="${x}" y="104" font-size="38" font-weight="700" fill="${color}">${esc(value)}</text>
-  <text x="${x}" y="128" font-size="13" fill="#9FB2D4" letter-spacing="1">${esc(label)}</text>
-  <text x="${x}" y="147" font-size="10.5" fill="#5E6F8F" letter-spacing="1.6">${esc(hint)}</text>`;
+const kpi = (x, value, label, hint) => `  <text x="${x}" y="104" font-size="38" font-weight="700" fill="#0F172A">${esc(value)}</text>
+  <text x="${x}" y="128" font-size="13" fill="#6B7280" letter-spacing="1">${esc(label)}</text>
+  <text x="${x}" y="147" font-size="10.5" fill="#C7CBD1" letter-spacing="1.6">${esc(hint)}</text>`;
 
 const kpis = [
-  { x: PAD, v: String(lifetime), label: "累计贡献", hint: "SINCE 2022", c: "#E9F3FF" },
-  { x: PAD + 245, v: String(activeDays), label: "活跃天数", hint: "ACTIVE DAYS", c: "#22D3EE" },
-  { x: PAD + 490, v: String(longest), label: "最长连续", hint: "LONGEST STREAK", c: "#818CF8" },
-  { x: PAD + 735, v: String(current), label: "当前连续", hint: "CURRENT STREAK", c: "#F472B6" },
+  { x: PAD, v: String(lifetime), label: "累计贡献", hint: "SINCE 2022" },
+  { x: PAD + 245, v: String(activeDays), label: "活跃天数", hint: "ACTIVE DAYS" },
+  { x: PAD + 490, v: String(longest), label: "最长连续", hint: "LONGEST STREAK" },
+  { x: PAD + 735, v: String(current), label: "当前连续", hint: "CURRENT STREAK" },
 ];
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" role="img" aria-label="贡献热力图">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="${W}" y2="${H}" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#080D18"/>
-      <stop offset="0.55" stop-color="#0B1220"/>
-      <stop offset="1" stop-color="#111A2D"/>
-    </linearGradient>
-    <linearGradient id="edge" x1="0" y1="0" x2="${W}" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.55"/>
-      <stop offset="0.45" stop-color="#818CF8" stop-opacity="0.45"/>
-      <stop offset="1" stop-color="#F472B6" stop-opacity="0.4"/>
-    </linearGradient>
-    <linearGradient id="glow" x1="0" y1="0" x2="420" y2="240" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.13"/>
-      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
-    </linearGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" stroke="#8FA8D8" stroke-opacity="0.05" stroke-width="1"/>
-    </pattern>
     <style>
-      @keyframes pulse { 0%{stroke-opacity:.95;stroke-width:1.4} 50%{stroke-opacity:.12;stroke-width:3.6} 100%{stroke-opacity:.95;stroke-width:1.4} }
-      .today{stroke:#7DEEFF;stroke-width:1.6;animation:pulse 2.8s ease-in-out infinite}
+      @keyframes ring { 0%{stroke-opacity:1} 50%{stroke-opacity:.25} 100%{stroke-opacity:1} }
+      .today{stroke:#1D4ED8;stroke-width:1.4;animation:ring 3s ease-in-out infinite}
       text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;font-variant-numeric:tabular-nums}
     </style>
   </defs>
 
-  <rect x="0.75" y="0.75" width="${W - 1.5}" height="${H - 1.5}" rx="18" fill="url(#bg)" stroke="url(#edge)" stroke-width="1.5"/>
-  <rect x="0.75" y="0.75" width="${W - 1.5}" height="${H - 1.5}" rx="18" fill="url(#grid)"/>
-  <rect x="0" y="0" width="460" height="240" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="18" fill="#FFFFFF" stroke="#EAECEF"/>
 
-  <text x="${PAD}" y="44" font-size="17" letter-spacing="3" fill="#C9D6EE">近一年贡献</text>
-  <text x="${PAD + 132}" y="44" font-size="11" letter-spacing="2.5" fill="#465876">CONTRIBUTION ACTIVITY</text>
-  <text x="${W - PAD}" y="44" text-anchor="end" font-size="12" letter-spacing="1" fill="#5E6F8F">${esc(LOGIN)} · 更新于 ${esc(stamp)}</text>
-  <path d="M${PAD} 60H${W - PAD}" stroke="#1B263C" stroke-width="1"/>
-${kpis.map((k) => kpi(k.x, k.v, k.label, k.hint, k.c)).join("\n")}
-  <path d="M${PAD + 215} 82V122" stroke="#1B263C" stroke-width="1"/>
-  <path d="M${PAD + 460} 82V122" stroke="#1B263C" stroke-width="1"/>
-  <path d="M${PAD + 705} 82V122" stroke="#1B263C" stroke-width="1"/>
+  <text x="${PAD}" y="44" font-size="17" letter-spacing="3" fill="#0F172A">近一年贡献</text>
+  <text x="${PAD + 132}" y="44" font-size="11" letter-spacing="2.5" fill="#C7CBD1">CONTRIBUTION ACTIVITY</text>
+  <text x="${W - PAD}" y="44" text-anchor="end" font-size="12" letter-spacing="1" fill="#B6BBC4">${esc(LOGIN)} · 更新于 ${esc(stamp)}</text>
+  <path d="M${PAD} 60H${W - PAD}" stroke="#F0F1F4" stroke-width="1"/>
+${kpis.map((k) => kpi(k.x, k.v, k.label, k.hint)).join("\n")}
+  <path d="M${PAD + 215} 82V122" stroke="#F0F1F4" stroke-width="1"/>
+  <path d="M${PAD + 460} 82V122" stroke="#F0F1F4" stroke-width="1"/>
+  <path d="M${PAD + 705} 82V122" stroke="#F0F1F4" stroke-width="1"/>
 
-${monthLabels.map((m) => `  <text x="${m.x.toFixed(1)}" y="178" font-size="11" letter-spacing="1" fill="#6B7C9B">${m.label}</text>`).join("\n")}
+${monthLabels.map((m) => `  <text x="${m.x.toFixed(1)}" y="178" font-size="11" letter-spacing="1" fill="#9CA3AF">${m.label}</text>`).join("\n")}
 ${Object.entries(WEEK_LABELS)
-  .map(([wd, t]) => `  <text x="${GRID_X - 12}" y="${(GRID_Y + Number(wd) * STEP + 9.5).toFixed(1)}" text-anchor="end" font-size="11" fill="#5E6F8F">${t}</text>`)
+  .map(([wd, t]) => `  <text x="${GRID_X - 12}" y="${(GRID_Y + Number(wd) * STEP + 9.5).toFixed(1)}" text-anchor="end" font-size="11" fill="#B6BBC4">${t}</text>`)
   .join("\n")}
 ${cells}
 
-  <text x="${GRID_X}" y="${H - 26}" font-size="11" letter-spacing="1" fill="#5E6F8F">少</text>
+  <text x="${GRID_X}" y="${H - 26}" font-size="11" letter-spacing="1" fill="#B6BBC4">少</text>
 ${LEVELS.map((c, n) => `  <rect x="${(GRID_X + 22 + n * STEP).toFixed(1)}" y="${H - 37}" width="${CELL}" height="${CELL}" rx="3" fill="${c}"/>`).join("\n")}
-  <text x="${(GRID_X + 30 + LEVELS.length * STEP).toFixed(1)}" y="${H - 26}" font-size="11" letter-spacing="1" fill="#5E6F8F">多</text>
-  <text x="${W - PAD}" y="${H - 26}" text-anchor="end" font-size="11" letter-spacing="1" fill="#465876">累计 ${lifetime} 次贡献 · 数据来自 GitHub</text>
+  <text x="${(GRID_X + 30 + LEVELS.length * STEP).toFixed(1)}" y="${H - 26}" font-size="11" letter-spacing="1" fill="#B6BBC4">多</text>
+  <text x="${W - PAD}" y="${H - 26}" text-anchor="end" font-size="11" letter-spacing="1" fill="#C7CBD1">累计 ${lifetime} 次贡献 · 数据来自 GitHub</text>
 </svg>
 `;
 
