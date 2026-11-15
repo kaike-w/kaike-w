@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="300" viewBox="0 0 1040 300" fill="none" role="img" aria-label="我的时区">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1040" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#080D18"/>
+      <stop offset="0.55" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#111A2D"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1040" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#818CF8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#F472B6" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="430" y1="176" x2="570" y2="176" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.85"/>
+      <stop offset="0.5" stop-color="#818CF8" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#F472B6" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientTransform="translate(500 176) rotate(90) scale(70)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#8FA8D8" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <style>
+      @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      @keyframes halo { 0%{stroke-opacity:.45} 50%{stroke-opacity:.1} 100%{stroke-opacity:.45} }
+      .dash{animation:spin 44s linear infinite;transform-origin:500px 176px}
+      .halo{animation:halo 3.6s ease-in-out infinite}
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+    </style>
+  </defs>
+
+  <rect x="0.75" y="0.75" width="1038.5" height="298.5" rx="18" fill="url(#bg)" stroke="url(#edge)" stroke-width="1.5"/>
+  <rect x="0.75" y="0.75" width="1038.5" height="298.5" rx="18" fill="url(#grid)"/>
+
+  <text x="40" y="44" font-size="17" letter-spacing="3" fill="#C9D6EE">我的时区</text>
+  <text x="140" y="44" font-size="11" letter-spacing="2.5" fill="#465876">TIMEZONE</text>
+  <path d="M40 60H1000" stroke="#1B263C" stroke-width="1"/>
+
+  <text x="40" y="118" font-size="42" font-weight="700" fill="#E9F3FF">UTC+8</text>
+  <text x="40" y="148" font-size="15" letter-spacing="1" fill="#9FB2D4">Asia/Shanghai</text>
+  <text x="40" y="172" font-size="12" letter-spacing="1" fill="#5E6F8F">中国标准时间 · 无夏令时</text>
+  <path d="M40 194H290" stroke="#1B263C" stroke-width="1"/>
+  <text x="40" y="220" font-size="12" letter-spacing="1" fill="#6B7C9B">与我同步时间：按 UTC+8 计算</text>
+  <text x="40" y="244" font-size="12" letter-spacing="1" fill="#6B7C9B">表盘为同一时刻，各城市所在位置</text>
+
+  <circle cx="500" cy="176" r="70" fill="url(#core)"/>
+  <circle cx="500" cy="176" r="70" stroke="url(#ring)" stroke-width="2" stroke-opacity="0.9"/>
+  <circle cx="500" cy="176" r="88" stroke="#25314B" stroke-width="1" stroke-dasharray="2 8" class="dash"/>
+  <line x1="500.0" y1="101.0" x2="500.0" y2="97.0" stroke="#24304A" stroke-width="1"/>
+  <line x1="519.4" y1="103.6" x2="520.4" y2="99.7" stroke="#24304A" stroke-width="1"/>
+  <line x1="537.5" y1="111.0" x2="539.5" y2="107.6" stroke="#24304A" stroke-width="1"/>
+  <line x1="553.0" y1="123.0" x2="555.9" y2="120.1" stroke="#24304A" stroke-width="1"/>
+  <line x1="565.0" y1="138.5" x2="568.4" y2="136.5" stroke="#24304A" stroke-width="1"/>
+  <line x1="572.4" y1="156.6" x2="576.3" y2="155.6" stroke="#24304A" stroke-width="1"/>
+  <line x1="575.0" y1="176.0" x2="579.0" y2="176.0" stroke="#24304A" stroke-width="1"/>
+  <line x1="572.4" y1="195.4" x2="576.3" y2="196.4" stroke="#24304A" stroke-width="1"/>
+  <line x1="565.0" y1="213.5" x2="568.4" y2="215.5" stroke="#24304A" stroke-width="1"/>
+  <line x1="553.0" y1="229.0" x2="555.9" y2="231.9" stroke="#24304A" stroke-width="1"/>
+  <line x1="537.5" y1="241.0" x2="539.5" y2="244.4" stroke="#24304A" stroke-width="1"/>
+  <line x1="519.4" y1="248.4" x2="520.4" y2="252.3" stroke="#24304A" stroke-width="1"/>
+  <line x1="500.0" y1="251.0" x2="500.0" y2="255.0" stroke="#24304A" stroke-width="1"/>
+  <line x1="480.6" y1="248.4" x2="479.6" y2="252.3" stroke="#24304A" stroke-width="1"/>
+  <line x1="462.5" y1="241.0" x2="460.5" y2="244.4" stroke="#24304A" stroke-width="1"/>
+  <line x1="447.0" y1="229.0" x2="444.1" y2="231.9" stroke="#24304A" stroke-width="1"/>
+  <line x1="435.0" y1="213.5" x2="431.6" y2="215.5" stroke="#24304A" stroke-width="1"/>
+  <line x1="427.6" y1="195.4" x2="423.7" y2="196.4" stroke="#24304A" stroke-width="1"/>
+  <line x1="425.0" y1="176.0" x2="421.0" y2="176.0" stroke="#24304A" stroke-width="1"/>
+  <line x1="427.6" y1="156.6" x2="423.7" y2="155.6" stroke="#24304A" stroke-width="1"/>
+  <line x1="435.0" y1="138.5" x2="431.6" y2="136.5" stroke="#24304A" stroke-width="1"/>
+  <line x1="447.0" y1="123.0" x2="444.1" y2="120.1" stroke="#24304A" stroke-width="1"/>
+  <line x1="462.5" y1="111.0" x2="460.5" y2="107.6" stroke="#24304A" stroke-width="1"/>
+  <line x1="480.6" y1="103.6" x2="479.6" y2="99.7" stroke="#24304A" stroke-width="1"/>
+  <line x1="500.0" y1="102.0" x2="500.0" y2="94.0" stroke="#3C4C6B" stroke-width="1.4"/>
+  <text x="500.0" y="86.0" text-anchor="middle" font-size="10.5" fill="#5E6F8F">0时</text>
+  <line x1="574.0" y1="176.0" x2="582.0" y2="176.0" stroke="#3C4C6B" stroke-width="1.4"/>
+  <text x="594.0" y="180.0" text-anchor="middle" font-size="10.5" fill="#5E6F8F">6时</text>
+  <line x1="500.0" y1="250.0" x2="500.0" y2="258.0" stroke="#3C4C6B" stroke-width="1.4"/>
+  <text x="500.0" y="274.0" text-anchor="middle" font-size="10.5" fill="#5E6F8F">12时</text>
+  <line x1="426.0" y1="176.0" x2="418.0" y2="176.0" stroke="#3C4C6B" stroke-width="1.4"/>
+  <text x="406.0" y="180.0" text-anchor="middle" font-size="10.5" fill="#5E6F8F">18时</text>
+  <circle cx="500.0" cy="106.0" r="4.6" fill="#34D399"/>
+  <circle cx="500.0" cy="106.0" r="9" fill="none" stroke="#34D399" stroke-opacity="0.28" stroke-width="1.2"/>
+  <text x="500.0" y="94.0" text-anchor="middle" font-size="12" fill="#C9D6EE">伦敦</text>
+  <circle cx="432.4" cy="157.9" r="4.6" fill="#F472B6"/>
+  <circle cx="432.4" cy="157.9" r="9" fill="none" stroke="#F472B6" stroke-opacity="0.28" stroke-width="1.2"/>
+  <text x="420.4" y="161.9" text-anchor="end" font-size="12" fill="#C9D6EE">纽约</text>
+  <circle cx="549.5" cy="225.5" r="4.6" fill="#818CF8"/>
+  <circle cx="549.5" cy="225.5" r="9" fill="none" stroke="#818CF8" stroke-opacity="0.28" stroke-width="1.2"/>
+  <text x="561.5" y="241.5" text-anchor="start" font-size="12" fill="#C9D6EE">东京</text>
+  <circle cx="518.1" cy="243.6" r="4.6" fill="#22D3EE"/>
+  <circle cx="518.1" cy="243.6" r="9" fill="none" stroke="#22D3EE" stroke-opacity="0.28" stroke-width="1.2"/>
+  <text x="530.1" y="259.6" text-anchor="start" font-size="12" fill="#C9D6EE">悉尼</text>
+  <circle cx="560.6" cy="211.0" r="6.5" fill="#0B1220" stroke="#22D3EE" stroke-width="2"/>
+  <circle cx="560.6" cy="211.0" r="12" fill="none" stroke="#22D3EE" stroke-opacity="0.35" stroke-width="1.2" class="halo"/>
+  <text x="578.6" y="216.0" font-size="12" font-weight="600" fill="#7DEEFF">北京 · 我</text>
+
+  <text x="500" y="170" text-anchor="middle" font-size="26" font-weight="700" fill="#E9F3FF">+8</text>
+  <text x="500" y="192" text-anchor="middle" font-size="11" letter-spacing="1.5" fill="#6B7C9B">UTC OFFSET</text>
+
+  <path d="M700 84V252" stroke="#1B263C" stroke-width="1"/>
+  <text x="760" y="92" font-size="11" letter-spacing="2" fill="#465876">城市对照</text>
+  <circle cx="760" cy="104" r="4" fill="#34D399"/>
+  <text x="776" y="108" font-size="13" fill="#C9D6EE">伦敦</text>
+  <text x="1000" y="108" text-anchor="end" font-size="11.5" fill="#6B7C9B">UTC+0 · 比我晚 8 小时</text>
+  <circle cx="760" cy="142" r="4" fill="#F472B6"/>
+  <text x="776" y="146" font-size="13" fill="#C9D6EE">纽约</text>
+  <text x="1000" y="146" text-anchor="end" font-size="11.5" fill="#6B7C9B">UTC-5 · 比我晚 13 小时</text>
+  <circle cx="760" cy="180" r="4" fill="#818CF8"/>
+  <text x="776" y="184" font-size="13" fill="#C9D6EE">东京</text>
+  <text x="1000" y="184" text-anchor="end" font-size="11.5" fill="#6B7C9B">UTC+9 · 比我早 1 小时</text>
+  <circle cx="760" cy="218" r="4" fill="#22D3EE"/>
+  <text x="776" y="222" font-size="13" fill="#C9D6EE">悉尼</text>
+  <text x="1000" y="222" text-anchor="end" font-size="11.5" fill="#6B7C9B">UTC+11 · 比我早 3 小时</text>
+
+  <text x="1000" y="276" text-anchor="end" font-size="11" letter-spacing="1" fill="#465876">时区数据固定，无需定时刷新</text>
+</svg>
