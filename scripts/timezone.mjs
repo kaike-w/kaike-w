@@ -33,14 +33,14 @@ const pt = (h, r) => {
 const minor = Array.from({ length: 24 }, (_, h) => {
   const [x1, y1] = pt(h, R + 5);
   const [x2, y2] = pt(h, R + 9);
-  return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#E8EAEE" stroke-width="1"/>`;
+  return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#DDE1E6" stroke-width="1.4"/>`;
 }).join("\n");
 
 const major = [0, 6, 12, 18]
   .map((h) => {
     const [x1, y1] = pt(h, R + 4);
     const [x2, y2] = pt(h, R + 11);
-    return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#CBD0D8" stroke-width="1.4"/>`;
+    return `  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#B9C0CA" stroke-width="1.4"/>`;
   })
   .join("\n");
 
