@@ -16,17 +16,17 @@
   <g clip-path="url(#l1)" font-family="'Fira Code',Consolas,monospace" font-size="16">
     <text x="34" y="104" fill="#2563EB">$ whoami</text>
     <text x="250" y="104" fill="#111827">kaike-w</text>
-    <text x="430" y="104" fill="#B6BBC4" font-size="13">// 一个还在学新东西的人</text>
+    <text x="430" y="104" fill="#A1A7B0" font-size="13">// 一个还在学新东西的人</text>
   </g>
   <g clip-path="url(#l2)" font-family="'Fira Code',Consolas,monospace" font-size="16">
     <text x="34" y="148" fill="#2563EB">$ cat status.txt</text>
     <text x="250" y="148" fill="#111827">摸鱼中，有事烧纸</text>
-    <text x="430" y="148" fill="#B6BBC4" font-size="13">// 但会回消息</text>
+    <text x="430" y="148" fill="#A1A7B0" font-size="13">// 但会回消息</text>
   </g>
   <g clip-path="url(#l3)" font-family="'Fira Code',Consolas,monospace" font-size="16">
     <text x="34" y="192" fill="#2563EB">$ sudo make me happy</text>
     <text x="250" y="192" fill="#16A34A">[ok] 已满足</text>
-    <text x="430" y="192" fill="#B6BBC4" font-size="13">// 一行命令治愈</text>
+    <text x="430" y="192" fill="#A1A7B0" font-size="13">// 一行命令治愈</text>
   </g>
   <rect class="cur" x="34" y="206" width="9" height="16" rx="1" fill="#2563EB"/>
 </svg>
