@@ -44,8 +44,6 @@
 | **[nowbule.github.io](https://github.com/kaike-w/nowbule.github.io)** | 自己搭的小站，偶尔去打扫 |
 | **[hs_education](https://github.com/kaike-w/hs_education)** | 写着写着就开始面向对象 |
 
-<br />
-
 <div align="center">
   <img width="200" src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/cat.svg" alt="cat" />
   <br />
