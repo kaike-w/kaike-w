@@ -84,7 +84,7 @@ const GRID_Y = 196;
 const MONTHS = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
 const WEEK_LABELS = { 1: "一", 3: "三", 5: "五" };
 
-const LEVELS = ["#141E33", "#12506B", "#0E7490", "#22D3EE", "#7DEEFF"];
+const LEVELS = ["#17233A", "#12506B", "#0E7490", "#22D3EE", "#7DEEFF"];
 const level = (n) => (n === 0 ? 0 : n <= 1 ? 1 : n <= 4 ? 2 : n <= 9 ? 3 : 4);
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
