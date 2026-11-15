@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/banner.svg" alt="kaike-w" width="100%" />
+  <img src="https://raw.githubusercontent.com/kaike-w/kaike-w/main/assets/banner.svg?v=2" alt="kaike-w" width="100%" />
 </div>
 
 <p align="center">
